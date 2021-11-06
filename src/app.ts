@@ -46,7 +46,7 @@ app.use("/api/v1/cards", cardsRouter);
 
 app.get("/", (req: Request, res: Response) => {
   res.status(200).json({
-    message: "Welcome to TEST API, Stella is a good girl, she is 18years old",
+    message: "Welcome to TEST API, Stella is a good girl, she is 19years old",
   });
 });
 
