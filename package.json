@@ -11,7 +11,6 @@
     "start:staging": "tsc-watch --onSuccess \"node ./dist/server.js staging\"",
     "start:dev": "tsc-watch --onSuccess \"node ./dist/server.js development\"",
     "start:dev:debug": "tsc-watch --onSuccess \"node --inspect ./dist/server.js\"",
-    "build": "yarn prepare && yarn rm-dist && yarn build-ts && yarn copy-assets",
     "serve": "node dist/server.js",
     "prepare": "chmod +x ./scripts/*",
     "watch-node": "nodemon dist/server.js",

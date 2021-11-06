@@ -40,7 +40,3 @@ dist/**/*
 # Ignore __my-test__ more of a trash bin
 __my-test__
 
-# ignore yarn.lock
-yarn.lock
-.secreta/secreta.json
-.secreta/config.js
