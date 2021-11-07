@@ -9,6 +9,7 @@ import { userRouter } from "./api/user/user.route";
 import { walletRouter } from "./api/wallet/wallet.route";
 import { transactionsrouter } from "./api/transactions/transactions.route";
 import { cardsRouter } from "./api/cards/cards.route";
+import { moviesRouter } from "./api/movies/movies.route";
 
 // create express server
 const app: Application = express();
@@ -43,6 +44,7 @@ app.use("/api/v1/users", userRouter);
 app.use("/api/v1/wallets", walletRouter);
 app.use("/api/v1/transactions", transactionsrouter);
 app.use("/api/v1/cards", cardsRouter);
+app.use("/api/v1/movies", moviesRouter);
 
 app.get("/", (req: Request, res: Response) => {
   res.status(200).json({
