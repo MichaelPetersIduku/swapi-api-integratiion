@@ -38,7 +38,7 @@ app.use("/api/v1/movies", moviesRouter);
 
 app.get("/", (req: Request, res: Response) => {
   res.status(200).json({
-    message: "Welcome to TEST API, Stella is a good girl, she is 19years older",
+    message: `Welcome to SWAPI API, click this link for documentation => https://documenter.getpostman.com/view/6889344/UVC5F8Bh#4cf84068-a6ae-4d5b-b1f0-8f972727c32d`,
   });
 });
 
