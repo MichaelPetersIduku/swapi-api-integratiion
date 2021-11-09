@@ -106,6 +106,22 @@ export class MoviesService extends UniversalsService {
     }
   };
 
+  public addMovieCommentService = async (meta, body): Promise<IResponse> => {
+    const { movieId, episodeId, comment } = body;
+    const { ip: userIPAddress } = meta;
+    try {
+      const movie = await MovieComment.create({
+        movieId,
+        episodeId,
+        comment,
+        userIPAddress
+      })
+      return this.successResponse("Successful", movie);
+    } catch (error) {
+      return this.serviceErrorHandler(meta, error);
+    }
+  };
+
   private sortMoviesByReleaseDate = (moviesArray: Array<any>): Array<any> => {
     return moviesArray.sort((item1, item2) => {
       const item1Date : any = new Date(item1.releaseDate);

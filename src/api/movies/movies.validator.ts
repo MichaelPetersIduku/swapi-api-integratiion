@@ -5,3 +5,9 @@ export const fetchMovieCharactersSchema = joi.object({
   order: joi.string().valid("asc", "desc"),
   filter: joi.string().valid("male", "female", "n/a")
 });
+
+export const addMovieCommentSchema = joi.object({
+  movieId: joi.string().required(),
+  episodeId: joi.string().required(),
+  comment: joi.string().length(500).required()
+});
