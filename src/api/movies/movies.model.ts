@@ -6,7 +6,8 @@ export const MovieCommentsSchema = new Schema(
     movieId: String,
     episodeId: String,
     comment: String,
-    userIPAddress: String
+    userIPAddress: String,
+    username: String
   },
   { timestamps: true }
 );

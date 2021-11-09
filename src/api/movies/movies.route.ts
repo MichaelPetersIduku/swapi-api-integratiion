@@ -10,3 +10,5 @@ moviesRouter.get("/", new MoviesController().fetchMoviesController);
 moviesRouter.get("/:movieId/characters", inputValidator({query: fetchMovieCharactersSchema}), new MoviesController().fetchMoviesCharactersController);
 
 moviesRouter.post("/comments", inputValidator({body: addMovieCommentSchema}), new MoviesController().addMovieCommentController);
+
+moviesRouter.get("/:movieId/comments", new MoviesController().fetchMovieCommentController);

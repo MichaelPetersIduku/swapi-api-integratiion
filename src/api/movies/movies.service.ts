@@ -108,17 +108,41 @@ export class MoviesService extends UniversalsService {
 
   public addMovieCommentService = async (meta, body): Promise<IResponse> => {
     const { movieId, episodeId, comment } = body;
+    const username = body.username || "Anonymous";
     const { ip: userIPAddress } = meta;
     try {
       const movie = await MovieComment.create({
         movieId,
         episodeId,
+        username,
         comment,
         userIPAddress
       })
       return this.successResponse("Successful", movie);
     } catch (error) {
       return this.serviceErrorHandler(meta, error);
+    }
+  };
+
+  public fetchMovieCommentService = async (req: Request): Promise<IResponse> => {
+    const { ip, originalUrl, method, params, query } = req;
+    const { movieId } = params;
+    let limit: any = query.limit;
+    let page: any = query.page;
+    limit = Number(limit) || 10;
+    page = Number(page) || 1;
+    const qry = {movieId};
+    const options = {
+      page,
+      limit,
+      sort: { createdAt: "desc" },
+      collation: { locale: "en" },
+    };
+    try {
+      const movie = await MovieComment.paginate(qry, options)
+      return this.successResponse("Successful", movie);
+    } catch (error) {
+      return this.serviceErrorHandler({ip, originalUrl, method}, error);
     }
   };
 

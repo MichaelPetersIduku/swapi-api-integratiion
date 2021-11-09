@@ -32,4 +32,13 @@ export class MoviesController extends UniversalsController {
     }
   };
 
+  public fetchMovieCommentController = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
+    try {
+      const response = await new MoviesService().fetchMovieCommentService(req);
+      this.controllerResponseHandler(response, res);
+    } catch (error) {
+      this.controllerErrorHandler(req, res, error);
+    }
+  };
+
 }

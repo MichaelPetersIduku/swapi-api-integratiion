@@ -9,5 +9,6 @@ export const fetchMovieCharactersSchema = joi.object({
 export const addMovieCommentSchema = joi.object({
   movieId: joi.string().required(),
   episodeId: joi.string().required(),
-  comment: joi.string().length(500).required()
+  comment: joi.string().max(500).required(),
+  username: joi.string()
 });
