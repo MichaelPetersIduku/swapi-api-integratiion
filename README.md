@@ -13,6 +13,9 @@ To get the Node server running locally:
 - Include your mongodb connection string in the .secreta/secreta.json file
 - `npm run start:prod` to start the local server on production mode
 
+# API Documentation
+Click the link for API documentation with available routes and request response examples: https://documenter.getpostman.com/view/6889344/UVC5F8Bh#4cf84068-a6ae-4d5b-b1f0-8f972727c32d
+
 # Code Overview
 
 ## Dependencies
