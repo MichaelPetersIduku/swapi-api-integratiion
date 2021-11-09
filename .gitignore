@@ -8,6 +8,8 @@ lib-cov
 *.gz
 *.swp
 
+.secreta
+
 pids
 logs
 results
@@ -39,4 +41,5 @@ dist/**/*
 
 # Ignore __my-test__ more of a trash bin
 __my-test__
+
 
