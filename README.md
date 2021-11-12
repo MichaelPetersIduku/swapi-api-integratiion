@@ -42,7 +42,7 @@ Click the link for API documentation with available routes and request response 
 - `logs/` This is where all log files are stored
 - `scripts/` Contains predeploy scripts
 - `src/@core/common/` where all universal files with generic functions that can be called from other files when extended
-- `src/@core/database/` This folder contains the connections to mongodb database
+- `src/@core/database/` This folder contains the connections to databases
 - `src/@core/interfaces/` This folder contains all interface files used as types
 - `src/api/`This folder contains all api modules which contains the route file, controller file, service file, model and validator file for each module. This API contains only one api module which is the `movie` module.
 - `src/util/` contains logger and middleware files along with any other utility files
