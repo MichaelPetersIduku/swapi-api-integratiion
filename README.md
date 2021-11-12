@@ -25,8 +25,8 @@ Click the link for API documentation with available routes and request response 
 - [body-parser](github.com/expressjs/body-parser) - Node js body parsing middleware
 - [cors](github.com/expressjs/cors) - Used to enable cors with various options
 - [joi](github.com/sideway/joi) - Object schema validation
-- [mongoose](https://github.com/Automattic/mongoose) - For modeling and mapping MongoDB data to javascript
-- [mongoose-paginate-v2](github.com/aravindnc/mongoose-paginate-v2) - Pagination library for mongoose
+- [sequelize](github.com/sequelize/sequelize) - Nodejs ORM for sql databases
+- [mysql2](github.com/sidorares/node-mysql2) - MySQL client for Node.js with focus on performance. Supports prepared statements, non-utf8 encodings, binary log protocol, compression, ssl 
 - [node-fetch](github.com/node-fetch/node-fetch) - For making third party api calls
 - [secreta](https://www.npmjs.com/package/secreta) - For managing secret keys and config
 - [winston](github.com/winstonjs/winston) - For logging anything
