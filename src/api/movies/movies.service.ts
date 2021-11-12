@@ -5,6 +5,7 @@ import MovieComment from "./movies.model";
 import logger from "../../util/logger/logger";
 import { Request } from "express";
 import { ICharacter } from "../../@core/interfaces/character";
+import { Op } from "sequelize";
 
 const { SWAPI_BASE_URL } = config;
 const DEFAULT_HEADERS = {
@@ -23,8 +24,15 @@ export class MoviesService extends UniversalsService {
       const { results } = responseJson;
       const movies = await Promise.all(results.map(async (item) => {
         const {episode_id: episodeId, title, opening_crawl: openingCrawl, director, producer, release_date: releaseDate, created, edited, url} = item;
-        const movieId = this.encryptString(url);
-        const commentCount = await MovieComment.countDocuments({movieId, episodeId});
+        const movieId = this.encryptString(url).toString();
+        const commentCount = await MovieComment.count({where: {
+          movieId: {
+            [Op.like]: movieId
+          },
+          episodeId: {
+            [Op.like]: episodeId
+          }
+        }});
         const movie = {
           episodeId, movieId, title, openingCrawl, director, producer, releaseDate, created, edited, commentCount
         };
@@ -139,8 +147,28 @@ export class MoviesService extends UniversalsService {
       collation: { locale: "en" },
     };
     try {
-      const movie = await MovieComment.paginate(qry, options)
-      return this.successResponse("Successful", movie);
+      const movieComments = await MovieComment.findAndCountAll({
+        where: {movieId}, 
+        order: [['createdAt', 'DESC']],
+        limit: limit,
+        offset: limit * (page - 1)
+      });
+      const totalComments = movieComments.count;
+      const totalPages = Math.ceil(totalComments / limit);
+      const data = {
+        comments: movieComments.rows,
+        meta: {
+          totalComments,
+          limit,
+          totalPages,
+          page,
+          hasNextPage: totalPages > page,
+          hasPrevPage: page > 1,
+          nextPage: totalPages > page ? page+1 : null,
+          prevPage: page > 1 ? page-1 : null
+        }
+      }
+      return this.successResponse("Successful", data);
     } catch (error) {
       return this.serviceErrorHandler({ip, originalUrl, method}, error);
     }

@@ -5,6 +5,7 @@ import cors from "cors";
 import { connectMongo } from "./@core/database/database.mongo";
 import logger from "./util/logger/logger";
 import { moviesRouter } from "./api/movies/movies.route";
+import { connectMYSQL } from "./@core/database/database.sql";
 
 // create express server
 const app: Application = express();
@@ -31,7 +32,10 @@ process.on("unhandledRejection", (e: any) => {
 });
 
 //connect mongo database
-connectMongo();
+// connectMongo();
+
+//connect sql database
+connectMYSQL()
 
 //Routes
 app.use("/api/v1/movies", moviesRouter);
