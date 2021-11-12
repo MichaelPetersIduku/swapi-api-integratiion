@@ -46,7 +46,7 @@ Click the link for API documentation with available routes and request response 
 - `src/@core/interfaces/` This folder contains all interface files used as types
 - `src/api/`This folder contains all api modules which contains the route file, controller file, service file, model and validator file for each module. This API contains only one api module which is the `movie` module.
 - `src/util/` contains logger and middleware files along with any other utility files
-- `src/app.ts` The entry point to our application. This file defines our express server and connects it to MongoDB using mongoose. It also requires the routes we'll be using in the application.
+- `src/app.ts` The entry point to our application. This file defines our express server and connects it to the SQL database using sequelize. It also requires the routes we'll be using in the application.
 - `src/server.ts` Contains the server setup
 - `Procfile` Heroku file for deployment to heroku
 - `.gitignore`
