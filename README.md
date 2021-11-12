@@ -3,7 +3,7 @@ Integration to swapi.dev to fetch star wars movies and movie characters with fun
 
 This repo is functionality complete — PRs and issues welcome!
 
-# [LiveUrl](https://swapi-api-integration.herokuapp.com) 
+# Demo Url
 https://swapi-api-integration.herokuapp.com
 
 
