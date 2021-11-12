@@ -13,8 +13,8 @@ To get the Node server running locally:
 
 - Clone this repo
 - `npm install` to install all required dependencies
-- Install MongoDB Community Edition ([instructions](https://docs.mongodb.com/manual/installation/#tutorials)) and run it by executing `mongod`
-- Include your mongodb connection string in the .secreta/secreta.json file
+- Install MySQL Server ([instructions](https://www.mysql.com/downloads/))
+- Include your sql connection string, db host, db username and db password in the .secreta/secreta.json file
 - `npm run start:prod` to start the local server on production mode
 
 # API Documentation
